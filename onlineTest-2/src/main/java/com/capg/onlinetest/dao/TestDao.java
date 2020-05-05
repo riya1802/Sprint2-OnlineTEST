@@ -1,11 +1,10 @@
-package com.example.dao;
+package com.capg.onlinetest.dao;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-
-import com.example.model.Test;
+import com.capg.onlinetest.entity.Test;
 
 @Repository
-public interface TestDao extends JpaRepository<Test, Integer>{
+public interface TestDao extends JpaRepository<Test, Integer> {
 
 }

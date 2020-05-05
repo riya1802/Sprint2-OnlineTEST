@@ -2,7 +2,6 @@ package com.capg.onlinetest.controller;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -11,62 +10,80 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import com.capg.onlinetest.model.Question;
-import com.capg.onlinetest.model.Test;
-import com.capg.onlinetest.model.User;
-import com.capg.onlinetest.service.AdminService;
+import com.capg.onlinetest.entity.Question;
+import com.capg.onlinetest.entity.Test;
+import com.capg.onlinetest.entity.User;
+import com.capg.onlinetest.service.QuestionService;
+import com.capg.onlinetest.service.TestService;
+import com.capg.onlinetest.service.UserService;
 
 @RestController
-@CrossOrigin("http://localhost:9090")
 @RequestMapping("/admin")
 public class AdminController {
 
 	@Autowired
-	AdminService adminService;
+	UserService userService;
+	@Autowired
+	TestService testService;
+	@Autowired
+	QuestionService questionService;
 	
-	@GetMapping("/allUsers")
-	public List<User> getAllUser() {
-		  return adminService.getAllUsers();
+	@GetMapping("/viewAllUsers")
+	public List<User> viewAllUser() {
+		return userService.viewAllUser();
 	}
-
+	
 	@PostMapping("/addTest")
-	public String addTest(@RequestBody Test test) {
-		return adminService.addTest(test);
+	public Test addTest(@RequestBody Test test) {
+		return testService.addTest(test);
 	}
 
-	@PutMapping("/updateTest")
-	public String updateTest(@RequestBody Test test) {	
-		return adminService.updateTest(test);
+	@GetMapping("/viewAllTests")
+	public List<Test> viewAllTest() {
+		return testService.viewAllTests();
 	}
 
 	@DeleteMapping("/deleteTest/{id}")
-	public String deleteTest(@PathVariable("id") int testId) {
-		  return adminService.deleteTest(testId);
+	public String deleteTest(@PathVariable(value = "id") int testId) {
+		return testService.deleteTest(testId);
 	}
 
-	@GetMapping("/allTest")
-	public List<Test> getAllTest() {
-		return adminService.getAllTests();
+	@PutMapping("/updateTest/{id}")
+	public String updateTest(@PathVariable(value = "id") int testId, @RequestBody Test test) {
+		return testService.updateTest(testId, test);
+
 	}
 
-	@PostMapping("/addQuestion/{testId}")
-	public String addQuestion(@PathVariable("testId") int testId, @RequestBody Question question) {
-		return adminService.addQuestions(testId, question);
+	@PostMapping("/addQuestion/{id}")
+	public String addQuestion(@PathVariable(value = "id") int testId, @RequestBody Question question) {
+			return questionService.addQuestion(testId, question);
+
 	}
 
-	@DeleteMapping("/deleteQuestion/{testId}")
-	public String deleteQuestion(@PathVariable("testId") int testId, @RequestBody Question question) {
-		  return adminService.deleteQuestions(testId, question);
+	@PutMapping("/updateQuestion/{id}")
+	public String updateQuestion(@PathVariable(value = "id") int qId, @RequestBody Question question) {
+		return questionService.updateQuestion(qId, question);
 	}
-	
-	@PutMapping("/updateQuestion/{testId}")
-	public String updateQuestion(@PathVariable("testId") int testId, @RequestBody Question question) {
-          return adminService.updateQuestions(testId, question);
+
+	@DeleteMapping("/deleteQuestion/{id}")
+	public String deleteQuestion(@PathVariable(value = "id") int qId) {
+		return questionService.deleteQuestion(qId);
 	}
-	
-	@PostMapping("/assignTest/{userId&testId}")
-	public String assignTest(@PathVariable("userId") int userId, @PathVariable("testId") int testId) {
-		return adminService.assignTest(userId, testId);
+
+	@GetMapping("/viewAllQuestions")
+	public List<Question> viewAllQuestion() {
+		return questionService.viewAllQuestions();
 	}
+
 	
+	@PostMapping("/getResult")
+	public float getResult(@RequestBody Test test) {
+		return testService.CalculateMarks(test);
+	}
+
+	@PostMapping("/assignTest/{userId}/{testId}")
+	public String assignTest(@PathVariable(value = "userId") int userId, @PathVariable(value = "testId") int testId) {
+		return userService.assignTest(userId, testId);
+	}
+
 }

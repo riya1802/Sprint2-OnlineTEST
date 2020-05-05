@@ -9,5 +9,4 @@ public class OnlineTestMgtSystemApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(OnlineTestMgtSystemApplication.class, args);
 	}
-
 }

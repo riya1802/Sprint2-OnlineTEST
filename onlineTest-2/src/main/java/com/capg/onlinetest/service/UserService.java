@@ -1,12 +1,12 @@
 package com.capg.onlinetest.service;
 
-import com.capg.onlinetest.model.Test;
-import com.capg.onlinetest.model.User;
+import java.util.List;
+import com.capg.onlinetest.entity.User;
 
 public interface UserService {
-
-	public String addUser(User user);
-	public String updateUser(User user);
-	public int getResult(Test test);
 	
+	public String addUser(User User);
+	public String updateUser(int UserId, User userDetails);
+	public List<User> viewAllUser();
+	public String assignTest(int userId,int testId);
 }
