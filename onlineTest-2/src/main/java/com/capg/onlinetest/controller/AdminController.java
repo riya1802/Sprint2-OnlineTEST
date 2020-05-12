@@ -45,7 +45,15 @@ public class AdminController {
 	public List<User> viewAllUser() {
 		return userService.viewAllUser();
 	}
-	
+
+	@DeleteMapping("/deleteUser/{userId}")
+	public ResponseEntity<String> deleteUser(@PathVariable(value="userId") int userId){
+		try {
+			return new ResponseEntity<String>(userService.deleteUser(userId),HttpStatus.OK);
+		}catch(UserNotFoundException e) {
+			return new ResponseEntity<String>(e.getMessage(),HttpStatus.NOT_FOUND);
+		}
+	}
 	@PostMapping("/addTest")
 	public ResponseEntity<?> addTest(@RequestBody Test test) {
 		try {

@@ -39,6 +39,17 @@ public class UserServiceImpl implements UserService {
 	     }else 
 	    	 throw new RecordNotFoundException("Record not present");
 	}
+	
+	@Override
+	public String deleteUser(int userId) {
+		Optional<User> userById = userDao.findById(userId);
+		if(userById.isPresent()) {
+			userDao.delete(userById.get());
+			return "User removed";
+		}else
+			throw new UserNotFoundException("! User ID doesn't exist !");
+	}
+	
 	@Override
 	public List<User> viewAllUser() {
 		return userDao.findAll();
