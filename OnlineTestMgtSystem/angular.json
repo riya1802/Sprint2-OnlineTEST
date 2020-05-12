@@ -1,6 +1,6 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "version": 1, 
+  "version": 1,
   "newProjectRoot": "projects",
   "projects": {
     "OnlineTestMgtSystem": {
@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "OnlineTestMgtSystem"
+    }
+  },
+  "defaultProject": "OnlineTestMgtSystem",
+  "cli": {
+    "analytics": "34892dca-03c6-4ee0-b878-0aa87c026179"
+  }
 }

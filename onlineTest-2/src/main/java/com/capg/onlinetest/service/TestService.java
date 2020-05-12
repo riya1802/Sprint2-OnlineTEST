@@ -9,5 +9,5 @@ public interface TestService {
     public String deleteTest(int testId);
     public String updateTest(int testId, Test test);
     public List<Test> viewAllTests();
-    public float CalculateMarks(Test test);
+    public float calculateTotalMarks(Test test);
 }

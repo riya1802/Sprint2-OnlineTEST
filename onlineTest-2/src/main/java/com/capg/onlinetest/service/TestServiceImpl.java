@@ -9,11 +9,11 @@ import org.springframework.stereotype.Service;
 import com.capg.onlinetest.dao.TestDao;
 import com.capg.onlinetest.entity.Question;
 import com.capg.onlinetest.entity.Test;
-import com.capg.onlinetest.exception.NullException;
-import com.capg.onlinetest.exception.TestNotAddedException;
-import com.capg.onlinetest.exception.TestNotDeletedException;
-import com.capg.onlinetest.exception.TestNotFoundException;
-import com.capg.onlinetest.exception.WrongTestIdException;
+import com.capg.onlinetest.exceptions.NullException;
+import com.capg.onlinetest.exceptions.TestNotAddedException;
+import com.capg.onlinetest.exceptions.TestNotDeletedException;
+import com.capg.onlinetest.exceptions.TestNotFoundException;
+import com.capg.onlinetest.exceptions.WrongTestIdException;
 
 @Service
 public class TestServiceImpl implements TestService {
@@ -28,7 +28,7 @@ public class TestServiceImpl implements TestService {
 		return testDao.save(test);
 		}
 		else
-			throw new TestNotAddedException("Test is already added");
+			throw new TestNotAddedException("! Test is already added !");
 	}
 
 	@Override
@@ -66,7 +66,7 @@ public class TestServiceImpl implements TestService {
 	}
 
 	@Override
-	public List<Test> viewAllTest() {
+	public List<Test> viewAllTests() {
 		List<Test> testList= testDao.findAll();
 		if(testList== null) {
 			throw new NullException("Test List is Empty!");
@@ -77,7 +77,7 @@ public class TestServiceImpl implements TestService {
 
 	@Override
 	public float calculateTotalMarks(Test test) {
-		int marks = 0;
+		 int marks = 0;
 		int id = test.getTestId();
 		Optional<Test> tst = testDao.findById(id);
 		if (tst.isPresent()) {
@@ -97,7 +97,7 @@ public class TestServiceImpl implements TestService {
 		}
 		
 		else
-			throw new TestNotFoundException("Test is not present.");
+			throw new TestNotFoundException("! Test is not present !");
 	}
 
 }
