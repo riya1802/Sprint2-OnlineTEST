@@ -1,0 +1,17 @@
+<app-admin-home></app-admin-home>
+<body>
+<h1> Registered Users </h1>
+<hr>
+<ul class="out">
+        <li *ngFor="let user of users">
+          <ul class="in">    
+              <li><b>User Id: </b>&emsp;{{ user.userId }}</li>       
+              <li><b>User Name: </b>&emsp;{{ user.userName }}</li>
+              <li><b>User Password: </b>&emsp;{{ user.userPassword }}</li>
+              <li><b>Is Admin: </b>&emsp;{{ user.isAdmin }}</li>
+              <li><b>TestId: </b>&emsp;{{user.testId}}</li>
+              <button class="btn btn-danger btn-xs" (click)="deleteUser(user.userId)">Delete</button>
+          </ul>     
+        </li>
+</ul>
+</body>

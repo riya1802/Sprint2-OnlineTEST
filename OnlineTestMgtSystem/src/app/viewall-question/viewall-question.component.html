@@ -1,0 +1,34 @@
+<app-admin-home></app-admin-home>
+<div class="container">
+    <div class="container">
+        <div class="row col-md-6 col-md-offset-2 custyle">
+        <table class="table table-striped custab">
+        <thead>
+            <tr>
+                <th>questionId</th>
+                <th>questionTitle</th>
+                <!-- <th>questionAnswer</th> -->
+                <th>questionMarks</th>
+                <!-- <th>chosenAnswer</th> -->
+                <!-- <th>marksScored</th> -->
+                <th>questionOptions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let question of questions">
+                <td>{{question.questionId}}</td>
+                <td>{{question.questionTitle}}</td>
+                <!-- <td>{{question.questionAnswer}}</td> -->
+                <td>{{question.questionMarks}}</td>
+                <!-- <td>{{question.chosenAnswer}}</td> -->
+                <!-- <td>{{question.marksScored}}</td> -->
+                <td *ngFor="let q of question.questionOptions">
+                {{q.answerId}}. {{q.value}}
+                </td>
+                <td class="text-center"><button class="btn btn-danger btn-xs" (click)="delQuestion(question.questionId)"><span class="glyphicon glyphicon-remove"></span> Delete</button></td>
+              </tr>
+        </tbody>
+        </table>
+        </div>
+    </div>
+    

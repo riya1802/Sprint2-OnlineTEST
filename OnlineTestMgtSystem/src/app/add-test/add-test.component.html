@@ -1,0 +1,50 @@
+ <app-admin-home></app-admin-home>
+ <div style="text-align: center">Add Test</div>
+<div style="text-align:center">
+    <h3>{{message}}</h3>
+</div>
+
+<div class="container" style="text-align: center">
+    <div class="row">
+        <div class="col-md-6">
+        <form #testForm="ngForm">
+                
+                <div class="form-group">
+                    <label for="testId">Enter Test Id: </label>
+                    <input required type="text" [(ngModel)]="test.testId" name="testId" 
+                    placeholder="Enter Test Id" #testId="ngModel" [class.is-invalid]="testId.invalid && testId.touched" class="form-control">
+                    <small class="text-danger" [class.d-none]="testId.valid || testId.untouched">testId is not entered</small>
+                </div>
+            <div class="form-group">
+                <label for="testTitle">Enter Test Name: </label>
+                <input required type="text" [(ngModel)]="test.testTitle" name="testTitle" 
+                placeholder="Enter Test Name" #testTitle="ngModel" [class.is-invalid]="testTitle.invalid && testTitle.touched" class="form-control">
+                <small class="text-danger" [class.d-none]="testTitle.valid || testTitle.untouched">testTitle is not entered</small>
+            </div>
+
+            <div class="form-group">
+                <label for="testDuration">Enter Test Duration:</label>
+                <input required type="text" [(ngModel)]="test.testDuration" name="testDuration" 
+                placeholder="HH:MM:SS" #testDuration="ngModel" [class.is-invalid]="testDuration.invalid && testDuration.touched" class="form-control">
+                <small class="text-danger" [class.d-none]="testDuration.valid || testDuration.untouched">testDuration is not entered</small>
+            </div>
+            
+             <div class="form-group">
+                <label for="startTime">Enter Start Time:</label>
+                <input required [(ngModel)]="test.startTime" name="startTime" 
+                placeholder="mm/dd/yyyy" #startTime="ngModel" [class.is-invalid]="startTime.invalid && startTime.touched" class="form-control">
+                <small class="text-danger" [class.d-none]="startTime.valid || startTime.untouched">startTime is not entered</small>
+            </div>
+            <div class="form-group">
+                <label for="endTime">Enter End Time:</label>
+                <input required  [(ngModel)]="test.endTime" name="endTime" 
+                placeholder="mm/dd/yyyy" #endTime="ngModel" [class.is-invalid]="endTime.invalid && endTime.touched" class="form-control">
+                <small class="text-danger" [class.d-none]="endTime.valid || endTime.untouched">endTime is not entered</small>
+            </div> 
+         <button class="btn btn-success" type="submit"  [disabled]="testForm.form.invalid" (click)="adTest(test)">Add Test</button>
+        
+    </form>
+    </div>
+</div>
+</div>
+

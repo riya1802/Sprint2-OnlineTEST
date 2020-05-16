@@ -1,0 +1,23 @@
+<app-admin-home></app-admin-home>
+<h2 style="text-align:center">TESTS</h2>
+<div style="text-align:center">List of All Tests</div>
+<!-- <button class="btn btn-primary" (click)="clickMe()">Click</button>-->
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Test Id</th>
+            <th>Test Name</th>
+            <th>Test Duration</th>
+            <th>Test Start Time</th>
+            <th>Test End Time</th>
+        </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let t of test">
+        <td>{{t.testId}}</td><td>{{t.testTitle}}</td>
+            <td>{{t.testDuration}}</td><td>{{t.startTime}}</td>
+            <td>{{t.endTime}} </td>
+           <td class="text-center"> <button class="btn btn-danger btn-xs" (click)="delTest(t.testId)"><span class="glyphicon glyphicon-remove"></span> Delete</button></td>
+    </tr>
+</tbody>
+</table>
