@@ -1,36 +1,14 @@
-body{
-    background-color: whitesmoke;
-    padding-bottom: 5px;
-}
-h1{
+h2{
+    margin-top:6px ;
     color: grey;
     text-align: center;
 }
-ul.in{
-    list-style-type: none;
-    background: lightgreen;   
-    padding: 0.5%; 
+th{
+    text-align: center;
 }
-ul.out{
-      list-style-type: none;
+td{
+    text-align: center;
 }
-ul li {
-        margin: 5px;
-        color:rebeccapurple;
-        font-family: Verdana;
-}
-header{
-    background: black;
-    color: white;
-    font-family: cursive;
-    margin-top: -1%;
-    text-align: right;
-    padding-right: 5px;
-    padding-top: 1px;
-    padding-bottom: 1px;
-}
-.check{
-    text-align: right;
-    font-size: 20px;
-    margin-right: 15px;
+table{
+    background:whitesmoke;
 }

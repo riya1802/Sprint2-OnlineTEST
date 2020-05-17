@@ -11,19 +11,19 @@ import org.springframework.web.bind.annotation.RestController;
 import com.capg.onlinetest.entity.User;
 import com.capg.onlinetest.exceptions.IncorrectPasswordException;
 import com.capg.onlinetest.exceptions.UserNotFoundException;
-import com.capg.onlinetest.service.UserService;
+import com.capg.onlinetest.service.LoginService;
 
 @CrossOrigin(origins= "http://localhost:4200")
 @RestController
 public class LoginController {
 
 	@Autowired
-	UserService userService;
+	LoginService loginService;
 	
 	@PostMapping("/login")
-	public ResponseEntity<String> login(@RequestBody User user){
+	public ResponseEntity<?> login(@RequestBody User user){
 	       try {
-	    	  return new ResponseEntity<String>(userService.login(user.getUserName(),user.getUserPassword()),HttpStatus.OK);
+	    	  return new ResponseEntity<>(loginService.login(user.getUserName(),user.getUserPassword()),HttpStatus.OK);
 	       }catch(IncorrectPasswordException e) {
 	    	   return new ResponseEntity<String>(e.getMessage(),HttpStatus.UNAUTHORIZED);
 	       }catch(UserNotFoundException e) {

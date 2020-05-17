@@ -7,10 +7,7 @@
             <tr>
                 <th>questionId</th>
                 <th>questionTitle</th>
-                <!-- <th>questionAnswer</th> -->
                 <th>questionMarks</th>
-                <!-- <th>chosenAnswer</th> -->
-                <!-- <th>marksScored</th> -->
                 <th>questionOptions</th>
             </tr>
         </thead>
@@ -18,10 +15,7 @@
             <tr *ngFor="let question of questions">
                 <td>{{question.questionId}}</td>
                 <td>{{question.questionTitle}}</td>
-                <!-- <td>{{question.questionAnswer}}</td> -->
                 <td>{{question.questionMarks}}</td>
-                <!-- <td>{{question.chosenAnswer}}</td> -->
-                <!-- <td>{{question.marksScored}}</td> -->
                 <td *ngFor="let q of question.questionOptions">
                 {{q.answerId}}. {{q.value}}
                 </td>

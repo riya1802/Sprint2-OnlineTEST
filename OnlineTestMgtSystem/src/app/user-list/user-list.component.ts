@@ -10,16 +10,16 @@ import { User } from '../entity/User';
 export class UserListComponent implements OnInit {
 
   users: any=new User(0,"",0,0,"");
-  errorMsg;
+  userId: number;
+  message: any;
   constructor(private userService: UserService) { }
 
   ngOnInit(): void {
-    let resp=this.userService.getAllUsers().subscribe(
-      data=> this.users = data
-    );
+    let resp=this.userService.getAllUsers().subscribe(data=> this.users = data);
   }
-  deleteUser(userId:number){
-    let resp= this.userService.deleteUser(userId);
-    resp.subscribe((data)=>this.users=data);
+  deleteUser(userId){
+    alert("Are you sure you want to delete the user?")
+    let del= this.userService.deleteUser(userId);
+    del.subscribe((data)=>this.message=data);
   }
 }

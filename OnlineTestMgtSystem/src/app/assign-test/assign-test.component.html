@@ -1,7 +1,7 @@
 <app-admin-home></app-admin-home>
 <h1>Assign Test</h1>
-<div >
-     <h1>{{mssg}}</h1>
+<div class="message">
+          <h3>{{message}}</h3>
 </div>
 <hr>
 <div class="container">
@@ -24,7 +24,7 @@
                          </div>
                          <br>
                          <div class="form-group">
-                                   <button class="btn btn-success btn-xs" [disabled]="assignTestForm.form.invalid" (click)="assignTest(userId,testId)">Assign</button>
+                                   <button class="btn btn-primary btn-xs" [disabled]="assignTestForm.form.invalid" (click)="assignTest(userId,testId)">Assign</button>
                          </div>
                </form>
           </div>

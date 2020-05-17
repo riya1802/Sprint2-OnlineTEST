@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
       this.router.navigate(['adminHome']);
     }
     if(this.u==0){
-      this.router.navigate(['addTest']);
+      this.router.navigate(['userHome']);
     }
   }
   signUp(){

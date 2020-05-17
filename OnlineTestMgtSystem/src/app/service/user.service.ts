@@ -16,10 +16,10 @@ export class UserService {
   getAllUsers() {
     return this.http.get("http://localhost:9090/admin/viewAllUsers");
   }
-  assignTest(userId,testId):Observable<any>{
-    return this.http.post(`http://localhost:9090/admin/assignTest/${userId}/${testId}`,{responseType:'text' as 'json'});
+  assignTest(userId,testId){
+    return this.http.post("http://localhost:9090/admin/assignTest/"+userId+"/"+testId,{responseType:'text' as 'json'});
   }
   deleteUser(userId){
-    return this.http.delete("http://localhost:9090/admin/deleteUser/"+userId);
+    return this.http.delete("http://localhost:9090/admin/deleteUser/"+userId,{responseType: 'text' as 'json'});
   }
 }

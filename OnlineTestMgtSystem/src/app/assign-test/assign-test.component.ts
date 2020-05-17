@@ -10,7 +10,7 @@ import { Observable } from 'rxjs';
 })
 export class AssignTestComponent implements OnInit {
 
-  mssg: String;
+  message: any;
   userId: number;
   testId: number;
   constructor(private userService: UserService) { }
@@ -18,7 +18,9 @@ export class AssignTestComponent implements OnInit {
   ngOnInit(): void {
   }
   
-  assignTest(userId: number, testId: number){
-      this.userService.assignTest(userId,testId).subscribe((data)=>this.mssg=data);
+  public assignTest(userId, testId){
+      let assign=this.userService.assignTest(userId,testId);
+      assign.subscribe((data)=>this.message=data);
+      alert("Test Assigned Successfully")
   }
 }

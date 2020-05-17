@@ -10,5 +10,4 @@ public interface UserService {
 	public String deleteUser(int userId);
 	public List<User> viewAllUser();
 	public String assignTest(int userId,int testId);
-	public String login(String userName, String userPassword);
 }
