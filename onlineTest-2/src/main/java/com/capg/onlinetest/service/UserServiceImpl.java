@@ -9,7 +9,6 @@ import com.capg.onlinetest.dao.UserDao;
 import com.capg.onlinetest.entity.Test;
 import com.capg.onlinetest.entity.User;
 import com.capg.onlinetest.exceptions.CannotAssignTestException;
-import com.capg.onlinetest.exceptions.IncorrectPasswordException;
 import com.capg.onlinetest.exceptions.RecordNotFoundException;
 import com.capg.onlinetest.exceptions.TestNotFoundException;
 import com.capg.onlinetest.exceptions.UserNotFoundException;
@@ -77,21 +76,5 @@ public class UserServiceImpl implements UserService {
 			throw new UserNotFoundException("! User ID does not exist !");
 	}
 
-	@Override
-	public String login(String userName, String userPassword) {
-		int id = userDao.getIdByUserName(userName);
-		Optional<User> findById = userDao.findById(id);
-		if (findById.isPresent()) {
-			User user = findById.get();
-			if (user.getUserPassword().equals(userPassword)) {
-				if (user.getIsAdmin() == 1)
-					return "Logged in successfully as ADMIN";
-				else
-					return "Logged in successfully as USER";
-
-			} else
-				throw new IncorrectPasswordException("!! Incorrect Password !!");
-		} else
-			throw new UserNotFoundException("!! User Not Found !!");
-	}
+	
 }

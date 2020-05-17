@@ -22,10 +22,11 @@ public class TestServiceImpl implements TestService {
 	TestDao testDao;
 
 	@Override
-	public Test addTest(Test test) {
+	public String addTest(Test test) {
 		Optional<Test> findById = testDao.findById(test.getTestId());
 		if (!findById.isPresent()) {
-		return testDao.save(test);
+		 testDao.save(test);
+		 return "Test Added";
 		}
 		else
 			throw new TestNotAddedException("! Test is already added !");

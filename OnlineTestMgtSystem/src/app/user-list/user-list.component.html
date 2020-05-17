@@ -1,17 +1,28 @@
+
 <app-admin-home></app-admin-home>
-<body>
-<h1> Registered Users </h1>
+<h2>Registered Users</h2>
 <hr>
-<ul class="out">
-        <li *ngFor="let user of users">
-          <ul class="in">    
-              <li><b>User Id: </b>&emsp;{{ user.userId }}</li>       
-              <li><b>User Name: </b>&emsp;{{ user.userName }}</li>
-              <li><b>User Password: </b>&emsp;{{ user.userPassword }}</li>
-              <li><b>Is Admin: </b>&emsp;{{ user.isAdmin }}</li>
-              <li><b>TestId: </b>&emsp;{{user.testId}}</li>
-              <button class="btn btn-danger btn-xs" (click)="deleteUser(user.userId)">Delete</button>
-          </ul>     
-        </li>
-</ul>
-</body>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>User Id</th>
+            <th>User Name</th>
+            <th>User Password</th>
+            <th>Registered As</th>
+            <th>TestID Assigned</th>
+            <th>Delete User</th>
+        </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let u of users">
+        <td>{{u.userId}}</td>
+        <td>{{u.userName}}</td>
+        <td>{{u.userPassword}}</td>
+        <td *ngIf="u.isAdmin==1">Admin</td>
+        <td *ngIf="u.isAdmin==0">User</td>
+        <td *ngIf="u.isAdmin==1">N/A</td>
+        <td *ngIf="u.isAdmin==0">{{u.testId}}</td>
+        <td> <button class="btn btn-danger btn-xs" (click)="deleteUser(u.userId)"><span class="glyphicon glyphicon-remove"></span> Delete</button></td>
+    </tr>
+</tbody>
+</table>

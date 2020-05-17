@@ -1,0 +1,17 @@
+form{
+    text-align: center;
+}
+.row{
+    background:whitesmoke;
+}
+.col-md-6{
+    margin-left: 270px;
+}
+h1{
+    text-align: center;
+    color: grey;
+}
+h3{
+    text-align: center;
+    color: grey;
+}

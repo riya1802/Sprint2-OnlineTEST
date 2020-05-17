@@ -1,7 +1,11 @@
 <app-admin-home></app-admin-home>
+ <div style="text-align: center">
+    <h1>Add Question</h1>
+</div>
 <div style="text-align: center">
     <h1>{{message}}</h1>
 </div>
+<hr>
 
 <div class="container">
     <div class="row">
@@ -46,12 +50,12 @@
                             <table>
                                 <tbody>
                                     <tr>
-                                        <td><input type="number" class="form-control"  [(ngModel)]="answerId1" name="answerId1" id="answerId1" required
+                                        <td><input class="form-control"  [(ngModel)]="answerId1" name="answerId1" id="answerId1" required
                                         placeholder="Enter numeric" ></td>
-                                        <td><input type="text" class="form-control"  [(ngModel)]="value1" name="value1" id="value1" required
+                                        <td><input class="form-control"  [(ngModel)]="value1" name="value1" id="value1" required
                                             placeholder="Write option in string "  > </td>
                                     </tr>
-                                    <!-- <tr>
+                                    <tr>
                                         <td><input class="form-control" [(ngModel)]="answerId2" name="answerId2" id="answerId2" required
                                         placeholder="Enter numeric" ></td>
                                         <td><input class="form-control" [(ngModel)]="value2" name="value2" id="value2" required
@@ -68,7 +72,7 @@
                                         placeholder="Enter numeric" ></td>
                                         <td><input class="form-control" [(ngModel)]="value4" name="value4" id="value4" required
                                             placeholder="Write option in string "  > </td>
-                                    </tr> -->
+                                    </tr>
                     
 
                                 </tbody>
@@ -83,7 +87,7 @@
                     
                     
                     <div class="form-group">
-                        <button class="btn btn-success" [disabled]="questionForm.form.invalid" type="submit"  (click)="save()">Add</button>
+                        <button class="btn btn-success" [disabled]="questionForm.form.invalid" type="submit"  (click)="adQuestion(test.testId,question)">Add</button>
                     </div>
             </form>
            

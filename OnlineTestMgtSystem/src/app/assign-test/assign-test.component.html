@@ -1,31 +1,36 @@
 <app-admin-home></app-admin-home>
-<h1>Assign Test</h1>
-<div >
-     <h1>{{mssg}}</h1>
+<div class="message">
+          <h3>{{message}}</h3>
 </div>
-<hr>
 <div class="container">
+          <h1>Assign Test</h1>
+          <hr>
      <div class="row">
           <div class="col-md-6">
                <form #assignTestForm="ngForm">
                     <div class="form-group">
                          <label for="UserId">User ID:</label>
-                         <input required type="text" [(ngModel)]="userId" name="userId" id="userId"
+                         <input required type="text" [(ngModel)]="userId" name="userId" id="userId" pattern="^[0-9]+$"
                            placeholder="Enter User ID" #userIdd="ngModel" [class.is-invalid]="userIdd.invalid && userIdd.touched" class="form-control">
-                         <small class="text-danger" [class.d-none]="userIdd.valid || userIdd.untouched">(Enter id of user whom test is to be assigned)</small>
+                         <small class="text-danger" [class.d-none]="userIdd.valid || userIdd.untouched">(*Enter User Id whom test is to be assigned)</small>
+                         <small class="text-danger" *ngIf="userIdd.errors?.pattern && userIdd.touched">
+                                   (*User Id must be in digits)
+                         </small>
                     </div>
                     
                     <div class="form-group">
                               <label for="TestId">Test ID: </label>
-                              <input required type="text" [(ngModel)]="testId" name="testId" id="testId"
+                              <input required type="text" [(ngModel)]="testId" name="testId" id="testId" pattern="^[0-9]+$"
                                 placeholder="Enter Test ID"  #testIdd="ngModel" [class.is-invalid]="testIdd.invalid && testIdd.touched" class="form-control">
-                                <small class="text-danger" [class.d-none]="testIdd.valid || testIdd.untouched">(Enter id of test which is to be assigned to the user)</small>
-                              
-                         </div>
+                                <small class="text-danger" [class.d-none]="testIdd.valid || testIdd.untouched">(*Enter Test Id which is to be assigned to the user)</small>
+                                <small class="text-danger" *ngIf="testIdd.errors?.pattern && testIdd.touched">
+                                        (*Test Id must be in digits)
+                                </small>
+                    </div>
                          <br>
-                         <div class="form-group">
-                                   <button class="btn btn-success btn-xs" [disabled]="assignTestForm.form.invalid" (click)="assignTest(userId,testId)">Assign</button>
-                         </div>
+                    <div class="form-group">
+                         <button class="btn btn-primary btn-xs" [disabled]="assignTestForm.form.invalid" (click)="assignTest(userId,testId)">Assign</button>
+                    </div>
                </form>
           </div>
      </div>

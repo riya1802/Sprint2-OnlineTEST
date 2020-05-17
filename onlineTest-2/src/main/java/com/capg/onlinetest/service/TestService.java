@@ -5,7 +5,7 @@ import com.capg.onlinetest.entity.Test;
 
 public interface TestService {
 
-	public Test addTest(Test test);
+	public String addTest(Test test);
     public String deleteTest(int testId);
     public String updateTest(int testId, Test test);
     public List<Test> viewAllTests();

@@ -16,6 +16,8 @@ import { CreateUserComponent } from './create-user/create-user.component';
 import { LoginComponent } from './login/login.component';
 import { AdminHomeComponent } from './admin-home/admin-home.component';
 import { LogoutComponent } from './logout/logout.component';
+import { UserHomeComponent } from './user-home/user-home.component';
+import { UpdateUserComponent } from './update-user/update-user.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +32,8 @@ import { LogoutComponent } from './logout/logout.component';
     LoginComponent,
     AdminHomeComponent,
     LogoutComponent,
+    UserHomeComponent,
+    UpdateUserComponent,
 
   ],
   imports: [

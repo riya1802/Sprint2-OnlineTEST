@@ -57,7 +57,7 @@ public class AdminController {
 	@PostMapping("/addTest")
 	public ResponseEntity<?> addTest(@RequestBody Test test) {
 		try {
-			return new ResponseEntity<Test>(testService.addTest(test),HttpStatus.OK);
+			return new ResponseEntity<String>(testService.addTest(test),HttpStatus.OK);
 		}catch(TestNotAddedException e) {
 			return new ResponseEntity<>(e.getMessage(),HttpStatus.BAD_REQUEST);
 		}
@@ -131,7 +131,7 @@ public class AdminController {
 	}
 
 	@PostMapping("/assignTest/{userId}/{testId}")
-	public ResponseEntity<String> assignTest(@PathVariable(value = "userId") int userId, @PathVariable(value = "testId") int testId) {
+	public ResponseEntity<?> assignTest(@PathVariable(value = "userId") int userId, @PathVariable(value = "testId") int testId) {
 		try {	
 			return new ResponseEntity<String>(userService.assignTest(userId, testId),HttpStatus.OK);
 		}catch(CannotAssignTestException e) {

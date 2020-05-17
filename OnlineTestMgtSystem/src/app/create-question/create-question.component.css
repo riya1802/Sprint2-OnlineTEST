@@ -1,0 +1,17 @@
+h1{
+    color: grey;
+    text-align: center;
+}
+form{
+    text-align: center;
+}
+.col-md-6{
+    margin-left: 270px;
+}
+.row{
+    background: whitesmoke;
+}
+message{
+    color: lightgreen;
+    text-align: center;
+}

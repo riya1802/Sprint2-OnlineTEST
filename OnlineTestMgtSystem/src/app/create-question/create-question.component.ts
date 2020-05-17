@@ -18,42 +18,34 @@ export class CreateQuestionComponent implements OnInit {
   testId:number;
   answerId:number;
   value:string;
-  // public answer:Answer[]=[];
-  answer:Array<Answer>=[];
+  
   // answer:Answer=new Answer(0,"");
- 
-
+  answer:Answer[]=[];
   answerId1:number;
   value1:string;
-  answer1:Answer=new Answer(this.answerId1,this.value1);
-  // answerId2:number;
-  // value2:string;
-  // answer2:Answer=new Answer(this.answerId2,this.value2);
-  // answerId3:number;
-  // value3:string;
-  // answer3:Answer=new Answer(this.answerId3,this.value3);
-  // answerId4:number;
-  // value4:string;
-  // answer4:Answer=new Answer(this.answerId4,this.value4);
+  answerId2:number;
+  value2:string;
+  answerId3:number;
+  value3:string;
+  answerId4:number;
+  value4:string;
 
   
-  ngOnInit() :void{
-  }
-
-  save(){
+ questionOptions:Array<Answer> = [
+    {answerId:this.answerId1,value: this.value1},
+    {answerId:this.answerId2,value: this.value2},
+    {answerId:this.answerId3,value: this.value3},
+    {answerId:this.answerId4,value: this.value4}
+  ];
     
-    this.answer.push(this.answer1);
 
-    // this.answer.push(this.answer2);
-
-    // this.answer.push(this.answer3);
-
-    // this.answer.push(this.answer4);
-
-    this.question.questionOptions = this.answer;
-
-
-    this.service.addQuestion(this.test.testId,this.question).subscribe((data)=>this.message=data);
+  
+  ngOnInit() {
+    this.question.questionOptions[4];
+  }
+   adQuestion(testId,question){
+    let resp= this.service.addQuestion(testId,question);
+    resp.subscribe((data)=>this.message=data);
    }
 }
 

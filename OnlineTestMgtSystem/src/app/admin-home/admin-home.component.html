@@ -1,7 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
 <head>
-  <title>Bootstrap Example</title>
+  <title>Bootstrap</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
@@ -12,15 +11,16 @@
 <body>
 
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-  <!-- Brand/logo -->
   <a class="navbar-brand" href="#">
       <img src="assets/einstein.png" alt="logo" style="width:40px">
   </a>
   
-  <!-- Links -->
   <ul class="navbar-nav">
     <li class="nav-item">
-      <a class="nav-link" routerLink="/viewAllUser">View_All_User</a>
+        <a class="nav-link" routerLink="/updateuser">Update_Profile</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/viewAllUser">View_All_Users</a>
     </li>
     <li class="nav-item">
       <a class="nav-link" routerLink="/addTest">Add_Test</a>
@@ -40,11 +40,8 @@
       <div > 
         <app-logout></app-logout>
       </div>
-    
-
-    
   </ul>
 </nav>
 </body>
-</html>
+
 

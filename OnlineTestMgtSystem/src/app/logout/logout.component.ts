@@ -13,6 +13,7 @@ export class LogoutComponent implements OnInit {
   ngOnInit(): void {
   }
   logOut(){
+    confirm("Are you sure you want to logout?")
     this.router.navigate(['login']);
   }
 }

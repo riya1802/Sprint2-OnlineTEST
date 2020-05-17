@@ -10,20 +10,23 @@ import { CreateUserComponent } from './create-user/create-user.component';
 import { LoginComponent } from './login/login.component';
 import { AdminHomeComponent } from './admin-home/admin-home.component';
 import { LogoutComponent } from './logout/logout.component';
-
+import { UserHomeComponent } from './user-home/user-home.component';
+import { UpdateUserComponent } from './update-user/update-user.component';
 
 const routes: Routes = [
   {path:"",redirectTo:"/login",pathMatch:"full"},
   {path:"login",component:LoginComponent},
   {path:"logout",component:LogoutComponent},
   {path:"adminHome",component:AdminHomeComponent},
+  {path:"userHome",component:UserHomeComponent},
   {path:"viewAllQuestions",component:ViewallQuestionComponent},
   {path:"addQuestion",component:CreateQuestionComponent},
   {path:"addTest",component:AddTestComponent},
   {path:"viewAllTest",component:ViewAllTestComponent},
   {path:"assignTest",component:AssignTestComponent},
   {path:"viewAllUser",component:UserListComponent},
-  {path:"addUser",component:CreateUserComponent}
+  {path:"addUser",component:CreateUserComponent},
+  {path:"updateuser",component:UpdateUserComponent}
 ];
 
 @NgModule({

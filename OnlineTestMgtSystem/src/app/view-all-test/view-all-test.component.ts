@@ -20,6 +20,7 @@ export class ViewAllTestComponent implements OnInit {
   public delTest(testId){
     let del=this.service.deleteTest(testId);
     del.subscribe((data)=>this.test=data);
+    alert("are you sure you want to delete the test?")
   }
 
 }
