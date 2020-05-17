@@ -1,23 +1,17 @@
-header{
-    background: black;
-    color: white;
-    font-family: cursive;
-    margin-top: -1%;
-    text-align: right;
-    padding-right: 5px;
-    padding-top: 1px;
-    padding-bottom: 1px;
-}
 h1{
     color: grey;
     text-align: center;
 }
-table{
-    border: 2px solid;
+form{
     text-align: center;
-    font-size: 25px;
-    background-color: whitesmoke;
-    color:darkblue;
-    padding: 10px;
-    margin: 20px;
+}
+.col-md-6{
+    margin-left: 270px;
+}
+.row{
+    background: whitesmoke;
+}
+message{
+    color: lightgreen;
+    text-align: center;
 }
