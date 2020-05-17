@@ -21,8 +21,11 @@ export class UserService {
   }
   deleteUser(userId){
     return this.http.delete("http://localhost:9090/admin/deleteUser/"+userId,{responseType: 'text' as 'json'});
+<<<<<<< HEAD
   }
   updateUser(userId,user){
     return this.http.put("http://localhost:9090/user/updateUser/"+userId,user)
+=======
+>>>>>>> 79d932fd27628209e7333db4fc996d0f9811fb3e
   }
 }
