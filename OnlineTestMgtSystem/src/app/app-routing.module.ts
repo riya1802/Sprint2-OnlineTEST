@@ -11,10 +11,7 @@ import { LoginComponent } from './login/login.component';
 import { AdminHomeComponent } from './admin-home/admin-home.component';
 import { LogoutComponent } from './logout/logout.component';
 import { UserHomeComponent } from './user-home/user-home.component';
-<<<<<<< HEAD
 import { UpdateUserComponent } from './update-user/update-user.component';
-=======
->>>>>>> 79d932fd27628209e7333db4fc996d0f9811fb3e
 
 const routes: Routes = [
   {path:"",redirectTo:"/login",pathMatch:"full"},

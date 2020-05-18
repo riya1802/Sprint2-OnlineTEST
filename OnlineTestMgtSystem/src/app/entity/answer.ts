@@ -1,8 +1,9 @@
 export class Answer{
-    constructor(
-        answerId:number,
-        value:string
-    ){}
     answerId:number;
-        value:string;
+    value:string;
+    constructor(answerId:number, value:string){
+        this.answerId= answerId;
+        this.value=value;
+    }
+   
 }

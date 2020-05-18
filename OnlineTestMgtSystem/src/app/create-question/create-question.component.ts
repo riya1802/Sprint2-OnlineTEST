@@ -13,13 +13,12 @@ export class CreateQuestionComponent implements OnInit {
   constructor(private service:QuestionService) { }
   
   message:any;
-  question: Question=new Question(0,"",0,0,0,0,null);
+  question: Question=new Question();
   test:Test=new Test(0,"",null,0,0,0,null,null);
   testId:number;
   answerId:number;
   value:string;
   
-  // answer:Answer=new Answer(0,"");
   answer:Answer[]=[];
   answerId1:number;
   value1:string;
@@ -31,20 +30,24 @@ export class CreateQuestionComponent implements OnInit {
   value4:string;
 
   
- questionOptions:Array<Answer> = [
-    {answerId:this.answerId1,value: this.value1},
-    {answerId:this.answerId2,value: this.value2},
-    {answerId:this.answerId3,value: this.value3},
-    {answerId:this.answerId4,value: this.value4}
-  ];
+ questionOptions:Answer[] = [];
     
 
   
   ngOnInit() {
     this.question.questionOptions[4];
   }
-   adQuestion(testId,question){
-    let resp= this.service.addQuestion(testId,question);
+   adQuestion(){
+     let option1 = new Answer(this.answerId1, this.value1);
+    this.question.questionOptions.push(option1);
+    let option2 = new Answer(this.answerId2, this.value2);
+    this.question.questionOptions.push(option2);
+    let option3 = new Answer(this.answerId3, this.value3);
+    this.question.questionOptions.push(option3);
+    let option4 = new Answer(this.answerId4, this.value4);
+    this.question.questionOptions.push(option4);
+
+    let resp= this.service.addQuestion(this.testId,this.question);
     resp.subscribe((data)=>this.message=data);
    }
 }

@@ -13,9 +13,9 @@
             <form #questionForm="ngForm">
                     <div class="form-group">
                         <label > Test Id: </label>
-                        <input required  [(ngModel)]="test.testId" name="testId" id="testId"
-                            class="form-control"  placeholder="Enter your Test Id..." #testId="ngModel" [class.is-invalid]="testId.invalid && testId.touched" class="form-control">
-                            <small class="text-danger" [class.d-none]="testId.valid || testId.untouched">testId is not entered</small>
+                        <input required  [(ngModel)]="testId" name="testId" id="testId"
+                            class="form-control"  placeholder="Enter your Test Id..." #test="ngModel" [class.is-invalid]="test.invalid && test.touched" class="form-control">
+                            <small class="text-danger" [class.d-none]="test.valid || test.untouched">testId is not entered</small>
                         </div>
 
                     <div class="form-group">
@@ -87,7 +87,7 @@
                     
                     
                     <div class="form-group">
-                        <button class="btn btn-success" [disabled]="questionForm.form.invalid" type="submit"  (click)="adQuestion(test.testId,question)">Add</button>
+                        <button class="btn btn-success" [disabled]="questionForm.form.invalid" type="submit"  (click)="adQuestion()">Add</button>
                     </div>
             </form>
            
