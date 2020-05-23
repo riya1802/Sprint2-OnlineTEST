@@ -13,6 +13,7 @@ import { LogoutComponent } from './logout/logout.component';
 import { UserHomeComponent } from './user-home/user-home.component';
 import { UpdateUserComponent } from './update-user/update-user.component';
 
+
 const routes: Routes = [
   {path:"",redirectTo:"/login",pathMatch:"full"},
   {path:"login",component:LoginComponent},

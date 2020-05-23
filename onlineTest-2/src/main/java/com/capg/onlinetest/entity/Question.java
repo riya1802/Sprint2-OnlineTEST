@@ -8,6 +8,11 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+/**
+ * 
+ * @author TEAM EINSTEIN
+ * QUESTION POJO Class
+ */
 @Entity
 @Table(name = "QuestionTable")
 public class Question {

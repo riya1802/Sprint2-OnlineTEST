@@ -15,12 +15,21 @@ import com.capg.onlinetest.exceptions.TestNotDeletedException;
 import com.capg.onlinetest.exceptions.TestNotFoundException;
 import com.capg.onlinetest.exceptions.WrongTestIdException;
 
+/**
+ * TEST SERVICE Implementation
+ * @author TEAM EINSTEIN
+ *
+ */
 @Service
 public class TestServiceImpl implements TestService {
 
 	@Autowired
-	TestDao testDao;
+	private TestDao testDao;
 
+	/**
+	 * @param test object
+	 * @return String
+	 */
 	@Override
 	public String addTest(Test test) {
 		Optional<Test> findById = testDao.findById(test.getTestId());
@@ -32,6 +41,10 @@ public class TestServiceImpl implements TestService {
 			throw new TestNotAddedException("! Test is already added !");
 	}
 
+	/**
+	 * @param testId
+	 * @return String
+	 */
 	@Override
 	public String deleteTest(int testId) {
 		if(testId!=0) {
@@ -49,6 +62,11 @@ public class TestServiceImpl implements TestService {
 		   throw new WrongTestIdException("Test does not exist for this Test ID");
 	}
 	}
+	
+	/**
+	 * @param testId, test object
+	 * @return String
+	 */
 	@Override
 	public String updateTest(int testId, Test test) {
 		Optional<Test> tst = testDao.findById(testId);
@@ -66,6 +84,9 @@ public class TestServiceImpl implements TestService {
 
 	}
 
+	/**
+	 * @return list of all tests
+	 */
 	@Override
 	public List<Test> viewAllTests() {
 		List<Test> testList= testDao.findAll();
@@ -76,6 +97,10 @@ public class TestServiceImpl implements TestService {
 			return testList;
 	}
 
+	/**
+	 * calculate the test marks
+	 * @param test object
+	 */
 	@Override
 	public float calculateTotalMarks(Test test) {
 		 int marks = 0;

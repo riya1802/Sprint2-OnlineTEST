@@ -10,27 +10,33 @@ import com.capg.onlinetest.entity.User;
 import com.capg.onlinetest.exceptions.IncorrectPasswordException;
 import com.capg.onlinetest.exceptions.UserNotFoundException;
 
+/**
+ * 
+ * @author Piyush
+ * LOGIN SERVICE Implementation
+ */
 @Service
 public class LoginServiceImpl implements LoginService{
 
 	@Autowired
-	UserDao userDao;
+	private UserDao userDao;
 	
+	/**
+	 * login override method
+	 * @param userName, userPassword
+	 * @return User object
+	 */
 	@Override
-		public int login(String userName, String userPassword) {
-			int id = userDao.getIdByUserName(userName);
-			Optional<User> findById = userDao.findById(id);
-			if (findById.isPresent()) {
-				User user = findById.get();
-				if (user.getUserPassword().equals(userPassword)) {
-					if (user.getIsAdmin() == 1)
-						return 1;
-					else
-						return 0;
-
-				} else
-					throw new IncorrectPasswordException("!! Incorrect Password !!");
-			} else
+		public User login(String userName, String userPassword) {
+			String id = userDao.getIdByUserName(userName);
+			if(id!=null) {
+				Optional<User> findById = userDao.findById(Integer.parseInt(id));
+					User user = findById.get();
+					if (user.getUserPassword().equals(userPassword)) {
+						return user;
+					} else
+						throw new IncorrectPasswordException("!! Incorrect Password !!");
+			}else
 				throw new UserNotFoundException("!! User Not Found !!");
 		}
 }

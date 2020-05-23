@@ -11,6 +11,11 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
+/**
+ * 
+ * @author TEAM EINSTEIN
+ * TEST POJO Class
+ */
 @Entity
 @Table(name = "TestTable")
 public class Test {
@@ -91,7 +96,17 @@ public class Test {
 		this.endTime = endTime;
 	}
 	
-
+	/**
+	 * Parameterized Constructor
+	 * @param testId
+	 * @param testTitle
+	 * @param testQuestions
+	 * @param testDuration
+	 * @param testTotalMarks
+	 * @param currentQuestion
+	 * @param startTime
+	 * @param endTime
+	 */
 	public Test(int testId, String testTitle, List<Question> testQuestions, int testDuration, int testTotalMarks,
 			int currentQuestion, Date startTime, Date endTime) {
 		super();
@@ -105,6 +120,9 @@ public class Test {
 		this.endTime = endTime;
 	}
 
+	/**
+	 * Default Constructor
+	 */
 	public Test() {}
 
 }

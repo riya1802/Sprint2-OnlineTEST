@@ -13,7 +13,9 @@ export class LogoutComponent implements OnInit {
   ngOnInit(): void {
   }
   logOut(){
-    confirm("Are you sure you want to logout?")
-    this.router.navigate(['login']);
+    let confirmation=confirm("Are you sure you want to logout?");
+    if(confirmation){
+      this.router.navigate(['login']);
+    }
   }
 }

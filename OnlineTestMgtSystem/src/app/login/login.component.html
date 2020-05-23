@@ -1,47 +1,49 @@
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-    <!-- Brand/logo -->
     <a class="navbar-brand" href="#">
-        <img src="assets/einstein.png" alt="logo" style="width:40px">
+        <img src="assets/einstein.png" alt="Einsteinlogo">
     </a>
     <h4>Team Einstein</h4>
 </nav>
-        <div class="container">
-                <h1>LOGIN</h1>
-                <hr>
-            <div class="row">
-                <div class="col-md-6">
-                    <form #loginForm="ngForm">
-                        <div class="form-group">
-                            <label> User Name: </label>
-                            <input required [(ngModel)]="user.userName" name="userName" id="userName" pattern="^[a-zA-Z]+$"
-                                class="form-control" placeholder="Enter your User Name..." #userName="ngModel"
-                                [class.is-invalid]="userName.invalid && userName.touched" class="form-control">
-                            <small class="text-danger" [class.d-none]="userName.valid || userName.untouched">(*User Name is required)</small>
-                            <small class="text-danger" *ngIf="userName.errors?.pattern && userName.touched">
-                                        (*User name must contain only alphabets)
-                            </small>    
-                        </div>
-
-                        <div class="form-group">
-                            <label> User Password: </label>
-                            <input class="form-control" [(ngModel)]="user.userPassword" name="userPassword" pattern="^[a-zA-Z]+$"
-                                id="userPassword" required placeholder="Enter userPassword" #userPassword="ngModel"
-                                [class.is-invalid]="userPassword.invalid && userPassword.touched" class="form-control">
-                            <small class="text-danger"
-                                [class.d-none]="userPassword.valid || userPassword.untouched">(*User Password is required)</small>
-                            <small class="text-danger" *ngIf="userPassword.errors?.pattern && userPassword.touched">
-                                        (*User Password must contain alphabets only)
-                            </small>    
-                        </div>
-                        <div class="form-group">
-                            <button class="btn btn-success" [disabled]="loginForm.form.invalid" type="submit"
-                                (click)="loginn(user)">Login</button>
-                        </div>
-                    </form>
-                    <div class="form-group">
-                            <button class="btn btn-dark" (click)="signUp()">New User?</button>
-                        </div>
+<div class="container">
+    <h1>LOGIN</h1>
+    <hr>
+    <div class="row">
+        <div class="col-md-6">
+            <form #loginForm="ngForm">
+                <div class="form-group">
+                    <label> User Name: </label>
+                    <input required [(ngModel)]="user.userName" name="userName" id="userName" pattern="^[a-zA-Z]{5,20}$"
+                        placeholder="Enter your User Name" #userName="ngModel"
+                        [class.is-invalid]="userName.invalid && userName.touched" class="form-control">
+                    <small class="text-danger" [class.d-none]="userName.valid || userName.untouched">(*User Name is
+                        required)</small>
+                    <small class="text-danger" *ngIf="userName.errors?.pattern && userName.touched">
+                        (*User name must contain alphabets only)<br>
+                        (*User Name must contain minimum 5 & maximum 20 characters)
+                    </small>
                 </div>
+
+                <div class="form-group">
+                    <label> User Password: </label>
+                    <input [(ngModel)]="user.userPassword" name="userPassword"
+                        pattern="^[a-zA-Z0-9]{8,}$" id="userPassword" required placeholder="Enter your User Password"
+                        #userPassword="ngModel" [class.is-invalid]="userPassword.invalid && userPassword.touched"
+                        class="form-control">
+
+                    <small class="text-danger" [class.d-none]="userPassword.valid || userPassword.untouched">(*User
+                        Password is required)</small>
+                    <small class="text-danger" *ngIf="userPassword.errors?.pattern && userPassword.touched">
+                        (*User Password must contain minimum 8 characters)
+                    </small>
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-success" [disabled]="loginForm.form.invalid" type="submit"
+                        (click)="loginn(user)">Login</button>
+                </div>
+            </form>
+            <div class="form-group">
+                <button class="btn btn-dark" (click)="signUp()">New User?</button>
             </div>
         </div>
-        
+    </div>
+</div>

@@ -14,14 +14,23 @@ import com.capg.onlinetest.exceptions.QuestionNotDeletedException;
 import com.capg.onlinetest.exceptions.QuestionNotFoundException;
 import com.capg.onlinetest.exceptions.WrongQuestionIdException;
 
+/**
+ * QUESTION SERVICE Implementation
+ * @author TEAM EINSTEIN
+ *
+ */
 @Service
 public class QuestionServiceImpl implements QuestionService {
    @Autowired
-   QuestionDao questionDao;
+   private QuestionDao questionDao;
    
    @Autowired
-   TestDao testDao;
+   private TestDao testDao;
    
+   /**
+    * @param testId, question object
+    * @return String
+    */
 	@Override
 	public String addQuestion(int testId, Question question) {
 		Optional<Question> question1 = questionDao.findById(question.getQuestionId());
@@ -37,6 +46,10 @@ public class QuestionServiceImpl implements QuestionService {
 			throw new QuestionNotAddedException("question already exists");
 	}
 
+	/**
+	 * @param questionId
+	 * @return String
+	 */
 	@Override
 	public String deleteQuestion(int questionId){
 		if(questionId!=0) {
@@ -52,6 +65,10 @@ public class QuestionServiceImpl implements QuestionService {
 		throw new WrongQuestionIdException("Question does not exist");
 	}
 
+	/**
+	 * @param questionId, question object
+	 * @return String
+	 */
 	@Override
 	public String updateQuestion(int questionId,Question ques) {
 		
@@ -69,6 +86,9 @@ public class QuestionServiceImpl implements QuestionService {
 			throw new QuestionNotFoundException("Question does not exist");
 	}
 
+	/**
+	 * @return list of questions
+	 */
 	@Override
 	public List<Question> viewAllQuestions() {
 		List<Question> questionList=questionDao.findAll();

@@ -4,6 +4,11 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+/**
+ * 
+ * @author TEAM EINSTEIN
+ * ANSWER POJO Class
+ */
 @Entity
 @Table(name = "AnswerTable")
 public class Answer {

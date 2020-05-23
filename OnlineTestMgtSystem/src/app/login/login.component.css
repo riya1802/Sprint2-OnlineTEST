@@ -1,10 +1,13 @@
 h4{
-        color:white;
+    color:white;
 }
 h1{
-        color: grey;
-        margin-top: 5px;
+    color: grey;
+    margin-top: 5px;
 }
 .row{
-        background:whitesmoke;
+    background:whitesmoke;
+}
+img{
+    width: 40px;
 }

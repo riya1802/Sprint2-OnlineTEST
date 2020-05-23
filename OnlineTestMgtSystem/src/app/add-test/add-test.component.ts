@@ -15,7 +15,6 @@ export class AddTestComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
   public adTest(test){
     let add=this.service.addTest(test);
     add.subscribe((data)=>this.message=data);

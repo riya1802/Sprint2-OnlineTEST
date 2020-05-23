@@ -8,7 +8,7 @@ export class Test{
 	testTotalMarks:number,
 	currentQuestion:number,
 	startTime:Date,
-     endTime:Date
+    endTime:Date
     ){}
     testId:number;
 	testTitle:string;

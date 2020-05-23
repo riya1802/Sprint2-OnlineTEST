@@ -18,6 +18,11 @@ import com.capg.onlinetest.exceptions.TestNotFoundException;
 import com.capg.onlinetest.service.TestService;
 import com.capg.onlinetest.service.UserService;
 
+/**
+ * 
+ * @author TEAM EINSTEIN
+ * USER Controller
+ */
 @CrossOrigin(origins= "http://localhost:4200")
 @RestController
 @RequestMapping("/user")
@@ -28,11 +33,22 @@ public class UserController {
 	@Autowired
 	TestService testService;
 	
+	/**
+	 * 
+	 * @param user 
+	 * @return String
+	 */
 	@PostMapping("/addUser")
 	public ResponseEntity<String> addUser(@RequestBody User user) {
 			return new ResponseEntity<String>(userService.addUser(user),HttpStatus.OK);
 	}
 
+	/**
+	 * 
+	 * @param id
+	 * @param user object
+	 * @return String
+	 */
 	@PutMapping("/updateUser/{id}")
 	public ResponseEntity<String> updateUser(@PathVariable(value = "id") int id, @RequestBody User user) {
 		try {
@@ -43,6 +59,11 @@ public class UserController {
 		
 	}
 
+	/**
+	 * 
+	 * @param test object
+	 * @return float
+	 */
 	@PostMapping("/getResult")
 	public ResponseEntity<?> getResult(@RequestBody Test test) {
 		try {

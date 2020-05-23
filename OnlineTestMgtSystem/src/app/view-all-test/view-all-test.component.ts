@@ -9,7 +9,6 @@ import { Test } from '../entity/test';
 })
 export class ViewAllTestComponent implements OnInit {
 
-  
   test: any= new Test(0,"",null,0,0,0,null,null);
   constructor(private service:TestService) { }
 

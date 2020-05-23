@@ -1,55 +1,55 @@
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-        <!-- Brand/logo -->
-        <a class="navbar-brand" href="#">
-            <img src="assets/einstein.png" alt="logo" style="width:40px">
-        </a>
-        <h4>Team Einstein</h4>
-        <ul class="navbar-nav">
-                <li class="nav-item">
-                      <a class="nav-link" class="btn btn-primary" routerLink="/login">Login</a>
-                </li>
-        </ul>
-    </nav>    
+    <!-- Brand/logo -->
+    <a class="navbar-brand" href="#">
+        <img src="assets/einstein.png" alt="logo" style="width:40px">
+    </a>
+    <h4>Team Einstein</h4>
+    <ul class="navbar-nav">
+            <li class="nav-item">
+                  <a class="nav-link" class="btn btn-primary" routerLink="/login">Login</a>
+            </li>
+    </ul>
+</nav>    
 <div class="message">
-    <h3>{{message}}</h3>
+<h3>{{message}}</h3>
 </div>
 
 <div class="container">
-        <h1>Sign Up</h1>
-        <hr>        
-    <div class="row">
-        <div class="col-md-6">
-        <form #userForm="ngForm">
-           <div class="form-group">
-                    <label >Enter User Id: </label>
-                    <input required type="text" [(ngModel)]="user.userId" name="userId" 
-                    placeholder="Enter User Id" #userId="ngModel" [class.is-invalid]="userId.invalid && userId.touched" class="form-control">
-                    <small class="text-danger" [class.d-none]="userId.valid || userId.untouched">userId is not entered</small>
-                </div>
-            <div class="form-group">
-                <label >Enter User Name: </label>
-                <input required type="text" [(ngModel)]="user.userName" name="userName" 
-                placeholder="Enter User Name"  #userName="ngModel" [class.is-invalid]="userName.invalid && userName.touched" class="form-control">
-                <small class="text-danger" [class.d-none]="userName.valid || userName.untouched">userName is not entered</small>
+    <h1>Sign Up</h1>
+    <hr>        
+<div class="row">
+    <div class="col-md-6">
+    <form #userForm="ngForm">
+       <div class="form-group">
+                <label >Enter User Id: </label>
+                <input required type="text" [(ngModel)]="user.userId" name="userId" 
+                placeholder="Enter User Id" #userId="ngModel" [class.is-invalid]="userId.invalid && userId.touched" class="form-control">
+                <small class="text-danger" [class.d-none]="userId.valid || userId.untouched">userId is not entered</small>
             </div>
-            <div class="form-group">
-                <label for="userPassword">Enter User Password: </label>
-                <input required type="text" [(ngModel)]="user.userPassword" name="userPassword" 
-                placeholder="Enter User Password" #userPassword="ngModel" [class.is-invalid]="userPassword.invalid && userPassword.touched" class="form-control">
-                <small class="text-danger" [class.d-none]="userPassword.valid || userPassword.untouched">userPassword is not entered</small>
-            </div>
-            <div class="form-group">
-                <label for="isAdmin"><span class="req">*</span>Enter isAdmin: </label>
-                <input required type="text" [(ngModel)]="user.isAdmin" name="isAdmin" 
-                placeholder="Enter isAdmin" #isAdmin="ngModel" [class.is-invalid]="isAdmin.invalid && isAdmin.touched" class="form-control">
-                <small class="text-danger" [class.d-none]="isAdmin.valid || isAdmin.untouched">isAdmin is not entered</small>
-            </div>
-        
-         <button class="btn btn-success" type="submit" [disabled]="userForm.form.invalid" (click)="adUser(user)">SignUp</button>
-        
+        <div class="form-group">
+            <label >Enter User Name: </label>
+            <input required type="text" [(ngModel)]="user.userName" name="userName" 
+            placeholder="Enter User Name"  #userName="ngModel" [class.is-invalid]="userName.invalid && userName.touched" class="form-control">
+            <small class="text-danger" [class.d-none]="userName.valid || userName.untouched">userName is not entered</small>
+        </div>
+        <div class="form-group">
+            <label for="userPassword">Enter User Password: </label>
+            <input required type="text" [(ngModel)]="user.userPassword" name="userPassword" 
+            placeholder="Enter User Password" #userPassword="ngModel" [class.is-invalid]="userPassword.invalid && userPassword.touched" class="form-control">
+            <small class="text-danger" [class.d-none]="userPassword.valid || userPassword.untouched">userPassword is not entered</small>
+        </div>
+        <div class="form-group">
+            <label for="isAdmin"><span class="req">*</span>Enter isAdmin: </label>
+            <input required type="text" [(ngModel)]="user.isAdmin" name="isAdmin" 
+            placeholder="Enter 1 for Admin OR 0 for User" #isAdmin="ngModel" [class.is-invalid]="isAdmin.invalid && isAdmin.touched" class="form-control">
+            <small class="text-danger" [class.d-none]="isAdmin.valid || isAdmin.untouched">isAdmin is not entered</small>
+        </div>
     
-    </form>
-    </div>
+     <button class="btn btn-success" type="submit" [disabled]="userForm.form.invalid" (click)="adUser(user)">SignUp</button>
+    
+
+</form>
+</div>
 </div>
 </div>
 

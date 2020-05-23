@@ -2,14 +2,16 @@ import { Component, OnInit } from '@angular/core';
 import { QuestionService } from '../service/question.service';
 import { Question } from '../entity/question';
 import { Test } from '../entity/test';
-import { Answer } from '../entity/answer';;
+import { Answer } from '../entity/answer';
+
 @Component({
   selector: 'app-create-question',
   templateUrl: './create-question.component.html',
   styleUrls: ['./create-question.component.css']
 })
 export class CreateQuestionComponent implements OnInit {
- 
+
+  
   constructor(private service:QuestionService) { }
   
   message:any;
@@ -51,4 +53,3 @@ export class CreateQuestionComponent implements OnInit {
     resp.subscribe((data)=>this.message=data);
    }
 }
-
